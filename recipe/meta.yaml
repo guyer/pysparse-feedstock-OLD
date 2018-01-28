@@ -1,0 +1,50 @@
+{% set name = "pysparse" %}
+{% set version = "1.3_dev" %}
+{% set md5 = "3071ea517b5462888ceba71720f6f4a8" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  # PyPI doesn't build
+  git_url: git://git.code.sf.net/p/pysparse/git
+
+build:
+  number: 0
+  script:
+    python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - nomkl # [not win]
+    - python
+    - distribute
+    - numpy x.x
+    - toolchain
+
+  run:
+    - nomkl # [not win]
+    - python
+    - numpy x.x
+
+test:
+  imports:
+    - pysparse
+
+about:
+  home: http://pysparse.sourceforge.net
+  license: BSD-2-Clause
+  summary: 'Fast sparse matrix library for Python'
+  description: |
+    Pysparse is a fast sparse matrix library for Python. It provides
+    several sparse matrix storage formats and conversion methods. It also
+    implements a number of iterative solvers, preconditioners, and
+    interfaces to efficient factorization packages. Both low-level and
+    high-level interfaces are available, each with different strengths.
+  doc_url: http://pysparse.sourceforge.net/contents.html
+  dev_url: https://sourceforge.net/projects/pysparse/
+
+extra:
+  recipe-maintainers:
+    - guyer
