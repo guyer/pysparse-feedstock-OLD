@@ -9,6 +9,7 @@ package:
 source:
   # PyPI doesn't build
   git_url: git://git.code.sf.net/p/pysparse/git
+  git_tag: 1751931aa5c06429245c3aca3a3ba6d7622ea8b5
 
 build:
   number: 0
