@@ -1,7 +1,6 @@
 About pysparse
 ==============
 
-
 Home: http://pysparse.sourceforge.net
 
 Package license: BSD-2-Clause
